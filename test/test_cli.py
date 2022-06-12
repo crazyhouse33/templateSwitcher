@@ -17,7 +17,7 @@ def test_parsing():
 
 def test_bin():
 
-    command = 'python3.7 ../bin/mutemple "Hello word, my name is {maman}" --file-constraint /opt -f /etc /dodo -s family="toto,tata,toto 8" toto="18=36 5" --set toto="maman,papa 8" -s maman=papa'
+    command = 'python3 ../bin/mutemple "Hello word, my name is {maman}" --file-constraint /opt -f /etc /dodo -s family="toto,tata,toto 8" toto="18=36 5" --set toto="maman,papa 8" -s maman=papa'
     result = subprocess.run(
         command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     assert result.stderr == b""

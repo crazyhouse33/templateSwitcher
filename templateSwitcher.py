@@ -36,7 +36,7 @@ class TemplateSwitcher:
         composedTemplate = [template]
         newEnd = end
         while string[newEnd:newEnd + 3] == '||{':
-            newTemplate, newStart, newEnd = self.findFirstTemplate(
+            newTemplate, _, newEnd = self.findFirstTemplate(
                 string, newEnd + 2)
             if newTemplate == None:
                 exit('Problem with template composition ||')
@@ -49,7 +49,6 @@ class TemplateSwitcher:
         groups = templateWordReg.search(string, start)
         if not groups:
             return None, -1, -1
-        wholeTemplate = groups[0]
         content = groups[1]
         options = groups[3]
         start = groups.start()

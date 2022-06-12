@@ -68,7 +68,7 @@ def parseDico(argparseProduct, sep, sep2):
     res = {}
     for entry in listEntry:
         key, values = entry.split('=', 1)
-        values, ponderation, allEqual = handler.parseData(values)
+        values, _, allEqual = handler.parseData(values)
         old = res.get(key, [])
         old.extend(values)
         res[key] = old

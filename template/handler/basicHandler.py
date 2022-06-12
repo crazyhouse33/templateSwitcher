@@ -6,7 +6,7 @@ class BasicHandler(Handler):
     def __init__(self, mainComponent, options, dico):
         Handler.__init__(self, mainComponent, options)
         values = dico[mainComponent]
-        if type(values) != list:
+        if not isinstance(values, list):
             values = [values]
         self.values = values
 
