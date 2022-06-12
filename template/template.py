@@ -13,14 +13,14 @@ class Template:
         self.composingTemplate = orTemplate
 
     def setSecurity(fileConstraints, allowCommand):
-        """Set security settings of the class. File constraint is the list of accessible directories (recursive) and allowCommand is  bool"""
+        """Set security settings of the class. File constraint is the list of accessible directories (recursive) and allowCommand is  bool."""
         Template.fileConstraints = fileConstraints
         Template.allowCommand = allowCommand
         Template.handlerFactory = handlerFactory.HandlerFactory(
             fileConstraints, allowCommand)
 
     def getAllValues(self, defaultKeys):
-        """ Get all values of composed templates and the sum of the ponderation in a tuple"""
+        """Get all values of composed templates and the sum of the ponderation in a tuple."""
 
         values = []
         ponderationTotal = 0
@@ -34,14 +34,14 @@ class Template:
         return values, ponderationTotal, allEqual
 
     def getValuesMono(self, template, defaultKeys):
-        """Return all possible values for a MONO template and the sum of ponderations in a tuple"""
+        """Return all possible values for a MONO template and the sum of ponderations in a tuple."""
         mainComponent, optionString = template
         handler = Template.handlerFactory.getHandler(
             mainComponent, optionString, defaultKeys)
         return handler.getValues()
 
     def replace(self, defaultKeys={}):
-        """Return a random value from the possibles values. If handler return ponderation as well as the value, the randomization respect this ponderation"""
+        """Return a random value from the possibles values. If handler return ponderation as well as the value, the randomization respect this ponderation."""
         values, ponderationSum, allEqual = self.getAllValues(defaultKeys)
         if not allEqual:
             return Template.inequalWeightReplace(values, ponderationSum)

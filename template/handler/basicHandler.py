@@ -14,16 +14,16 @@ class BasicHandler(Handler):
         return self.values
 
     def getRows(self, data):
-        """For the basic handler user give the rows directely"""
+        """For the basic handler user give the rows directly."""
         return data
 
     def sanitize(self, values):
-        """For basic handler there is nothing to sanitize"""
+        """For basic handler there is nothing to sanitize."""
         return values
 
     def parseRow(self, row):
         """The basic handler take either tuple or string as entry."""
-        if type(row) == tuple:
+        if isinstance(row, tuple):
             return row[0], row[1]
         else:
             return row, 1.0

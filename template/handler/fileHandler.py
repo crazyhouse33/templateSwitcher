@@ -7,6 +7,6 @@ class FileHandler(Handler):
         return FileHandler.readFile(self.mainComponent)
 
     def readFile(f):
-        """ Return content file"""
+        """Return content file."""
         with open(f, 'r') as f:
             return f.read()

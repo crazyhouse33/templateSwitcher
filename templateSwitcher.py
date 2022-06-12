@@ -16,11 +16,11 @@ class TemplateSwitcher:
 
     # For each key of dico not in templates, add value
     def setDico(self, dico):
-        """Set dico of switcher in order than {key} translate to one word among items of dico['key']"""
+        """Set dico of switcher in order than {key} translate to one word among items of dico['key']."""
         self.fixTemplate = dico
 
     def switchOne(self, string):
-        """ Resolve first finded template in string. Return resulted string"""
+        """Resolve first finded template in string. Return resulted string."""
         template, start, end = self.findComposedTemplate(string)
         if template:
             template = Template(template)
@@ -29,7 +29,7 @@ class TemplateSwitcher:
             return string
 
     def findComposedTemplate(self, string, start=0):
-        """ Find composed template in string starting from start."""
+        """Find composed template in string starting from start."""
         template, start, end = self.findFirstTemplate(string, start)
         if not template:
             return None, -1, -1
@@ -44,7 +44,7 @@ class TemplateSwitcher:
         return composedTemplate, start, newEnd
 
     def findFirstTemplate(self, string, start=0):
-        """ Find first finished template in string starting from start. Return parsed options, content, and position in string."""
+        """Find first finished template in string starting from start. Return parsed options, content, and position in string."""
 
         groups = templateWordReg.search(string, start)
         if not groups:
@@ -58,7 +58,7 @@ class TemplateSwitcher:
 
 # TODO Use re.searchall instead
     def switch(self, string):
-        """ Resolve every template of the string. Return the result string"""
+        """Resolve every template of the string. Return the result string."""
         found = True
         res = string
         tmp = string
